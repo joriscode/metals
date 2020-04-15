@@ -39,6 +39,8 @@ final class GlobalClassTable(
       scalaTarget <- buildTargets.scalaTarget(buildTargetId)
       classpath = new Classpath(scalaTarget.jarClasspath)
     } yield {
+      //println(s"GlobalClassTable> $source, $buildTargetId, $scalaTarget, $classpath")
+      //new ClassGraphTable("java.lang", "Exception").scan()
       buildTargetsIndexes.getOrElseUpdate(
         buildTargetId,
         GlobalSymbolTable(classpath, includeJdk = true)
